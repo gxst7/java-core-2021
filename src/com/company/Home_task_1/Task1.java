@@ -15,7 +15,7 @@ public class Task1 {
         int n = 8;
 
         for (int element: array) {
-            if (element != n) {
+            if ((element ^ n) != 0) {
                 sum += element;
             }
         }
