@@ -25,17 +25,13 @@ public class Task5 {
         }
 
         for (int i = 0; i < array.length; i++) {
-            for (int j = i; j < array[i].length; j++) {
-                if (i < j) {
-                    if (array[i][j] == 0) {
-                        continue;
-                    } else {
-                        System.out.println("This matrix is not triangular");
-                        return;
-                    }
+            for (int j = i + 1; j < array[i].length; j++) {
+                if (array[i][j] != 0) {
+                    System.out.println("This matrix is not lower triangular");
+                    return;
                 }
             }
         }
-        System.out.println("This matrix is triangular");
+        System.out.println("This matrix is lower triangular");
     }
 }
