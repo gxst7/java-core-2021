@@ -16,10 +16,14 @@ public class Task2 {
         int n = 7;
         int sum = 0;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < fibArray.length; i++) {
+            if (i == n) {
+                break;
+            }
             if (fibArray[i] % 2 == 0) {
                 sum += fibArray[i];
             }
         }
+        System.out.println(sum);
     }
 }
