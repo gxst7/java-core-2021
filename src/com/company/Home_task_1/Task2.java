@@ -12,16 +12,17 @@ package com.company.Home_task_1;
 public class Task2 {
 
     public static void main(String[] args) {
-        int[] fibArray = {0, 1, 1, 2, 3, 5, 8, 13, 21};
         int n = 7;
         int sum = 0;
+        int prev = 0;
+        int current = 1;
 
-        for (int i = 0; i < fibArray.length; i++) {
-            if (i == n) {
-                break;
-            }
-            if (fibArray[i] % 2 == 0) {
-                sum += fibArray[i];
+        for (int i = 0; i < n; i++) {
+            int next = prev + current;
+            prev = current;
+            current = next;
+            if (current % 2 == 0) {
+                sum += current;
             }
         }
         System.out.println(sum);
