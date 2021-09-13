@@ -1,4 +1,4 @@
-package com.company.Home_task_1;
+package com.company.Home_Work_1;
 
 /**
  * Задание 5.
