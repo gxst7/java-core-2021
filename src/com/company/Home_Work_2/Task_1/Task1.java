@@ -1,4 +1,4 @@
-package com.company.Home_Work_2.Task1;
+package com.company.Home_Work_2.Task_1;
 
 /**
  * Задача 1:
