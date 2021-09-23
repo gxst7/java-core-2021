@@ -27,8 +27,34 @@ public class Factory {
         }
     }
 
+    public boolean checkModels(String model) {
+        for (String m: models) {
+            if (m.equals(model)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkColors(String color) {
+        for (String c: colors) {
+            if (c.equals(color)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void createCar(String color, String model, int yearManufact, int sizeOfWheels, int engineVolume) {
-        this.car = carWarehouse.getAvailableCar(color, model, yearManufact, sizeOfWheels, engineVolume);
+        if (checkModels(model) && checkColors(color)) {
+            this.car = carWarehouse.getAvailableCar(color, model, yearManufact, sizeOfWheels, engineVolume);
+        } else if (checkModels(model) && !checkColors(color)) {
+            this.car = carWarehouse.getAvailableCar("black", model, yearManufact, sizeOfWheels, engineVolume);
+        } else if (!checkModels(model) && checkColors(color)) {
+            this.car = carWarehouse.getAvailableCar(color, "A4", yearManufact, sizeOfWheels, engineVolume);
+        } else {
+            this.car = carWarehouse.getAvailableCar("black", "A4", yearManufact, sizeOfWheels, engineVolume);
+        }
     }
 
     public Car getCar() {
