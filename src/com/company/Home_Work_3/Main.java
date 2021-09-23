@@ -8,7 +8,7 @@ public class Main {
         salon.orderCar("blue", "Tesla X", 2020,
                 24, 4);
 
-        salon.addOption(salon.getCar(),"rocket boost");
+        salon.changeColor(salon.getCar(), "sdf");
         salon.getCar().printInformation();
     }
 }

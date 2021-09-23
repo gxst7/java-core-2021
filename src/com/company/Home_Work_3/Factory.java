@@ -75,6 +75,14 @@ public class Factory {
         }
     }
 
+    public void changeColor(String color) {
+        service.changeColor(car, color);
+    }
+
+    public void changeWheels(int wheel) {
+        service.changeWheels(car, wheel);
+    }
+
     public Car getCar() {
         return car;
     }

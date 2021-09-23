@@ -28,7 +28,9 @@ public class Car {
     }
 
     public void changeColor(String color) {
-        this.color = color;
+        if (Properties.checkColor(color)) {
+            this.color = color;
+        }
     }
 
     public String getMODEL() {
@@ -52,7 +54,9 @@ public class Car {
     }
 
     public void changeSizeOfWheels(int sizeOfWheels) {
-        this.sizeOfWheels = sizeOfWheels;
+        if (Properties.checkWheels(sizeOfWheels)) {
+            this.sizeOfWheels = sizeOfWheels;
+        }
     }
 
     public String getListOfOptions() {
