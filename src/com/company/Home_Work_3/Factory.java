@@ -27,6 +27,24 @@ public class Factory {
         }
     }
 
+    public boolean checkWheels(int wheel) {
+        for (int w: wheels) {
+            if (w == wheel) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkEngines(int engine) {
+        for (int e: engines) {
+            if (e == engine) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean checkModels(String model) {
         for (String m: models) {
             if (m.equals(model)) {
