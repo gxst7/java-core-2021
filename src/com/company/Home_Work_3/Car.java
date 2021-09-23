@@ -102,4 +102,9 @@ public class Car {
         return this.color.equals(color) && this.MODEL.equals(model)
                 && this.sizeOfWheels == sizeOfWheels && this.YEAR_OF_MANUFACT == yearManufact;
     }
+
+    public boolean compareCars(Car car) {
+        return this.color.equals(car.getColor()) && this.MODEL.equals(car.getMODEL())
+                && this.sizeOfWheels == car.getSizeOfWheels() && this.YEAR_OF_MANUFACT == car.getYEAR_OF_MANUFACT();
+    }
 }

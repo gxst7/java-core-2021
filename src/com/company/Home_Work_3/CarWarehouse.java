@@ -2,7 +2,7 @@ package com.company.Home_Work_3;
 
 public class CarWarehouse {
 
-    private final Car[] cars;
+    private Car[] cars;
 
     CarWarehouse() {
         cars = new Car[3];
@@ -18,9 +18,22 @@ public class CarWarehouse {
     public Car getAvailableCar(String color, String model, int yearManufact, int sizeOfWheels, int engineVolume) {
         for (Car car: cars) {
             if (car.compareCars(color, model, yearManufact, sizeOfWheels, engineVolume)) {
+                deleteCarFromWarehouse(car);
                 return car;
             }
         }
         return new Car(color, model, yearManufact, sizeOfWheels, engineVolume);
+    }
+
+    public void deleteCarFromWarehouse(Car car) {
+        Car[] delCarArr = new Car[cars.length - 1];
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].compareCars(car)) {
+                delCarArr[i] = cars[++i];
+            } else {
+                delCarArr[i] = cars[i];
+            }
+        }
+        cars = delCarArr;
     }
 }
