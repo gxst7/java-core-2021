@@ -1,4 +1,4 @@
-package com.company.Home_Work_3;
+package com.company.Home_Work_3.car_and_properties;
 
 import java.util.Arrays;
 

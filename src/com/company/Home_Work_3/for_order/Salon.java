@@ -1,4 +1,6 @@
-package com.company.Home_Work_3;
+package com.company.Home_Work_3.for_order;
+
+import com.company.Home_Work_3.car_and_properties.Car;
 
 public class Salon {
 
@@ -10,11 +12,11 @@ public class Salon {
         service = new Service();
     }
 
-    void orderCar(String color, String model, int yearManufact, int sizeOfWheels, int engineVolume) {
+    public void orderCar(String color, String model, int yearManufact, int sizeOfWheels, int engineVolume) {
         factory.createCar(color, model, yearManufact, sizeOfWheels, engineVolume);
     }
 
-    void changeColor(Car car, String color) {
+    public void changeColor(Car car, String color) {
         service.changeColor(car, color);
     }
 
@@ -30,7 +32,7 @@ public class Salon {
         service.deleteOption(car, option);
     }
 
-    Car getCar() {
+    public Car getCar() {
         return factory.getCar();
     }
 }

@@ -1,6 +1,8 @@
-package com.company.Home_Work_3;
+package com.company.Home_Work_3.for_order;
 
-class Service {
+import com.company.Home_Work_3.car_and_properties.Car;
+
+public class Service {
 
     void changeColor(Car car, String color) {
         car.changeColor(color);

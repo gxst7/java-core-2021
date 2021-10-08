@@ -1,8 +1,10 @@
-package com.company.Home_Work_3;
+package com.company.Home_Work_3.for_order;
+
+import com.company.Home_Work_3.car_and_properties.Car;
+import com.company.Home_Work_3.car_and_properties.OptionsList;
 
 public class Factory {
 
-    private Car car;
     private final String[] models;
     private final int[] engines;
     private final String[] colors;
@@ -10,6 +12,7 @@ public class Factory {
     private OptionsList options;
     private CarWarehouse carWarehouse;
     private Service service;
+    private Car car;
 
     public Factory() {
         models  = new String[]{"A4", "A6", "A8", "Model X", "Model S", "X5"};
@@ -65,21 +68,25 @@ public class Factory {
 
     public void createCar(String color, String model, int yearManufact, int sizeOfWheels, int engineVolume) {
         if (checkModels(model) && checkColors(color)) {
-            this.car = carWarehouse.getAvailableCar(color, model, yearManufact, sizeOfWheels, engineVolume);
+            car = carWarehouse.getAvailableCar(color, model, yearManufact, sizeOfWheels, engineVolume);
         } else if (checkModels(model) && !checkColors(color)) {
-            this.car = carWarehouse.getAvailableCar("black", model, yearManufact, sizeOfWheels, engineVolume);
+            car =  carWarehouse.getAvailableCar("black", model, yearManufact, sizeOfWheels, engineVolume);
         } else if (!checkModels(model) && checkColors(color)) {
-            this.car = carWarehouse.getAvailableCar(color, "A4", yearManufact, sizeOfWheels, engineVolume);
+            car = carWarehouse.getAvailableCar(color, "A4", yearManufact, sizeOfWheels, engineVolume);
         } else {
-            this.car = carWarehouse.getAvailableCar("black", "A4", yearManufact, sizeOfWheels, engineVolume);
+            car = carWarehouse.getAvailableCar("black", "A4", yearManufact, sizeOfWheels, engineVolume);
+        }
+
+        if (car.equals(null)) {
+            car = new Car(color, model, yearManufact, sizeOfWheels, engineVolume);
         }
     }
 
-    public void changeColor(String color) {
+    public void changeColor(Car car, String color) {
         service.changeColor(car, color);
     }
 
-    public void changeWheels(int wheel) {
+    public void changeWheels(Car car, int wheel) {
         service.changeWheels(car, wheel);
     }
 
