@@ -1,20 +1,19 @@
 package com.company.Home_Work_3.car_and_properties;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class OptionsList {
 
-    private String[] optionsList;
+    private List<String> optionsList = new ArrayList<>();
 
     OptionsList(String[] options) {
-        optionsList = new String[options.length];
-        for (int i = 0; i < options.length; i++) {
-            optionsList[i] = new String(options[i]);
-        }
+        optionsList.addAll(Arrays.asList(options));
     }
 
     public OptionsList() {
-        optionsList = new String[]{};
+
     }
 
     // Return string representation of list of options
@@ -36,27 +35,14 @@ public class OptionsList {
             }
         }
         // if not, then add the option
-        String[] resAdd = new String[optionsList.length + 1];
-        for (int i = 0; i < optionsList.length; i++) {
-            resAdd[i] = optionsList[i];
-        }
-        resAdd[optionsList.length] = new String(option);
-        optionsList = resAdd;
+        optionsList.add(option);
     }
 
     // Delete an option from the list
     void deleteOption(String option) {
         for (String op: optionsList) {
             if (op.equals(option)) {
-                String[] resDel = new String[optionsList.length - 1];
-                for (int i = 0; i < resDel.length; i++) {
-                    if (optionsList[i].equals(option)) {
-                        resDel[i] = optionsList[++i];
-                    } else {
-                        resDel[i] = optionsList[i];
-                    }
-                }
-                optionsList = resDel;
+                optionsList.remove(option);
             } else {
                 System.out.println("There is no such option");
             }
@@ -67,7 +53,7 @@ public class OptionsList {
     @Override
     public String toString() {
         return "OptionsList{" +
-                "optionsList=" + Arrays.toString(optionsList) +
+                "optionsList=" + optionsList +
                 '}';
     }
 }
