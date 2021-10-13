@@ -1,4 +1,4 @@
-package com.company.Home_Work_5;
+package com.company.Home_Work_5.Task_9;
 
 import java.io.*;
 
@@ -15,7 +15,7 @@ public class Task_9 {
         Box box_5 = new Box(10, 10, 10);
 
         try {
-            FileOutputStream fileStream = new FileOutputStream("./src/com/company/Home_Work_5/Box.ser");
+            FileOutputStream fileStream = new FileOutputStream("./src/com/company/Home_Work_5/Task_9/Box.ser");
             ObjectOutputStream os = new ObjectOutputStream(fileStream);
 
             os.writeObject(box_1);
