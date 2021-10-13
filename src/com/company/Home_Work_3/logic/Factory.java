@@ -1,7 +1,7 @@
-package com.company.Home_Work_3.for_order;
+package com.company.Home_Work_3.logic;
 
-import com.company.Home_Work_3.car_and_properties.Car;
-import com.company.Home_Work_3.car_and_properties.OptionsList;
+import com.company.Home_Work_3.entity.Car;
+import com.company.Home_Work_3.entity.OptionsList;
 
 public class Factory {
 

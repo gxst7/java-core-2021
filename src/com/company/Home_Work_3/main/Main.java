@@ -1,6 +1,6 @@
-package com.company.Home_Work_3;
+package com.company.Home_Work_3.main;
 
-import com.company.Home_Work_3.for_order.Salon;
+import com.company.Home_Work_3.logic.Salon;
 
 public class Main {
 

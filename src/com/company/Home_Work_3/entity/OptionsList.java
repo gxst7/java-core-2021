@@ -1,4 +1,4 @@
-package com.company.Home_Work_3.car_and_properties;
+package com.company.Home_Work_3.entity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
