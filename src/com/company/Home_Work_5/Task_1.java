@@ -13,12 +13,12 @@ public class Task_1 {
         PrintWriter pw = new PrintWriter(System.out, true);
         String str;
         pw.println("Enter some strings of text");
-        pw.println("Enter 'stop' to finish");
+        pw.println("Enter nothing to finish");
         do {
             str = br.readLine();
-            if (!str.equals("stop")) {
+            if (!str.equals("")) {
                 pw.println(str);
             }
-        } while (!str.equals("stop"));
+        } while (!str.equals(""));
     }
 }
