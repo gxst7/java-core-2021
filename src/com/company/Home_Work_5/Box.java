@@ -1,9 +1,11 @@
 package com.company.Home_Work_5;
 
+import java.io.Serializable;
+
 /**
  * Создать класс коробка. Создать 5 объектов. Сериализовать их в файл.
  */
-public class Box {
+public class Box implements Serializable {
 
     private int length;
     private int width;
