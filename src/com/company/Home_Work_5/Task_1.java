@@ -8,17 +8,21 @@ import java.io.*;
  */
 public class Task_1 {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter pw = new PrintWriter(System.out, true);
         String str;
         pw.println("Enter some strings of text");
         pw.println("Enter nothing to finish");
-        do {
-            str = br.readLine();
-            if (!str.equals("")) {
-                pw.println(str);
-            }
-        } while (!str.equals(""));
+        try {
+            do {
+                str = br.readLine();
+                if (!str.equals("")) {
+                    pw.println(str);
+                }
+            } while (!str.equals(""));
+        } catch (NullPointerException | IOException exception) {
+            System.out.println("You are entered Ctrl-D (Ctrl-Z)");
+        }
     }
 }
