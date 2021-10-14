@@ -33,7 +33,7 @@ public class Task_10 {
 
             maxBox = Box.getMaxBox(boxes);
             System.out.println(maxBox);
-            fw.write(maxBox.toString());
+            fw.write(maxBox.getStringVolume());
 
             os.close();
             fw.close();

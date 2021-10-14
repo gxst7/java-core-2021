@@ -62,10 +62,14 @@ public class Box implements Serializable {
         return length * width * depth;
     }
 
+    public String getStringVolume() {
+        return "" + getVolume();
+    }
+
     public static Box getMaxBox(ArrayList<Box> boxes) {
         Box tempBox = null;
         double temp = 0;
-        for (Box box: boxes) {
+        for (Box box : boxes) {
             if (box.getVolume() > temp) {
                 tempBox = box;
                 temp = box.getVolume();
