@@ -1,13 +1,15 @@
 package com.company.Home_Work_5.Task_9;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Создать класс коробка. Создать 5 объектов. Сериализовать их в файл.
  */
 public class Box implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static transient final long serialVersionUID = 1L;
     private int length;
     private int width;
     private int depth;
@@ -56,12 +58,29 @@ public class Box implements Serializable {
         this.depth = depth;
     }
 
+    public int getVolume() {
+        return length * width * depth;
+    }
+
+    public static Box getMaxBox(ArrayList<Box> boxes) {
+        Box tempBox = null;
+        double temp = 0;
+        for (Box box: boxes) {
+            if (box.getVolume() > temp) {
+                tempBox = box;
+                temp = box.getVolume();
+            }
+        }
+        return tempBox;
+    }
+
     @Override
     public String toString() {
         return "Box{" +
                 "length=" + length +
                 ", width=" + width +
                 ", depth=" + depth +
+                ", volume=" + getVolume() +
                 '}';
     }
 }
