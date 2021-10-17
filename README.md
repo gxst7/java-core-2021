@@ -1,5 +1,5 @@
-# It-academy Java Core course
-__________________________________
+# IT-Academy Java Core Course
+_______________________________
 ## The training program includes:
 * the basics of the Java language;
 * the basics of algorithms;
