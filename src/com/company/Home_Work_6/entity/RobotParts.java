@@ -1,6 +1,6 @@
 package com.company.Home_Work_6.entity;
 
-public enum Robot {
+public enum RobotParts {
 
     LEFT_HAND,
     RIGHT_HAND,
