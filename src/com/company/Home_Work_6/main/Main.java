@@ -1,5 +1,7 @@
 package com.company.Home_Work_6.main;
 
+import com.company.Home_Work_6.logic.Conflict;
+
 /**
  * Есть две страны (Можно больше).
  * Они создают армии роботов, чтобы напасть друг на друга.
@@ -26,6 +28,7 @@ package com.company.Home_Work_6.main;
 public class Main {
 
     public static void main(String[] args) {
-
+        Conflict conflict = new Conflict();
+        conflict.start();   // начинает конфликт между N стран
     }
 }
