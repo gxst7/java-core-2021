@@ -6,6 +6,12 @@ public class WareHouse {
 
     private static ArrayList<RobotParts> robotPartsFromWareHouse = new ArrayList<>();
 
+    private RobotParts getRobotPartFromWareHouse() {
+        for (RobotParts part : robotPartsFromWareHouse) {
+
+        }
+    }
+
     private void deleteRobotPartFromWareHouse(RobotParts robotPart) {
         robotPartsFromWareHouse.remove(robotPart);
     }
