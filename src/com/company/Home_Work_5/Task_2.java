@@ -1,6 +1,5 @@
 package com.company.Home_Work_5;
 
-import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -21,17 +20,25 @@ public class Task_2 {
         }
     }
 
-    private static int[][] getDimension() {
-        int[][] matrix;
-        System.out.println("Enter numbers for dimension");
-        if (scanner.hasNextInt()) {
-            matrix = new int[scanner.nextInt()][scanner.nextInt()];
+    private static int getInt(){
+        System.out.println("Введите число:");
+        int num;
+        if(scanner.hasNextInt()){
+            num = scanner.nextInt();
         } else {
-            System.out.println("you made a mistake. try again");
+            System.out.println("Вы допустили ошибку при вводе числа. Попробуйте еще раз.");
             scanner.next();
-            matrix = getDimension();
+            num = getInt();
         }
-        return matrix;
+        return num;
+    }
+
+    private static int[][] getDimension() {
+        int a, b;
+        System.out.println("Enter numbers for dimension...");
+        a = getInt();
+        b = getInt();
+        return new int[a][b];
     }
 
     private static int[][] getMatrixFromInput() {
@@ -39,9 +46,11 @@ public class Task_2 {
         System.out.println("enter values");
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                if (!scanner.hasNextInt()) {
-                    System.out.println("you made a mistake. try again");
-                    scanner.next();
+                while (!scanner.hasNextInt()) {
+                    if (!scanner.hasNextInt()) {
+                        System.out.println("you made a mistake. try again");
+                        scanner.next();
+                    }
                 }
                 matrix[i][j] = scanner.nextInt();
             }
