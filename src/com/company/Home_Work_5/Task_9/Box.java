@@ -2,7 +2,6 @@ package com.company.Home_Work_5.Task_9;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Создать класс коробка. Создать 5 объектов. Сериализовать их в файл.
@@ -32,30 +31,6 @@ public class Box implements Serializable {
 
     Box() {
         length = width = depth = 0;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getDepth() {
-        return depth;
-    }
-
-    public void setDepth(int depth) {
-        this.depth = depth;
     }
 
     public int getVolume() {

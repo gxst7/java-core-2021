@@ -1,6 +1,5 @@
 package com.company.Home_Work_5;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -11,38 +10,43 @@ import java.util.Scanner;
  */
 public class Task_2 {
 
-    public static void main(String[] args) throws FileNotFoundException {
-        Scanner scanner = new Scanner(System.in);
-        int n, m;
-        int a, b;
-        int[][] matrix1;
-        int[][] matrix2;
+    static Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Dimension of matrix: n * m");
-        n = scanner.nextInt();
-        m = scanner.nextInt();
-        matrix1 = new int[n][m];
+    public static void main(String[] args) {
+        int[][] matrix1 = getMatrixFromInput();
+        int[][] matrix2 = getMatrixFromInput();
 
+        for (int[] i : multiplyByMatrix(matrix1, matrix2)) {
+            System.out.println(Arrays.toString(i));
+        }
+    }
+
+    private static int[][] getDimension() {
+        int[][] matrix;
+        System.out.println("Enter numbers for dimension");
+        if (scanner.hasNextInt()) {
+            matrix = new int[scanner.nextInt()][scanner.nextInt()];
+        } else {
+            System.out.println("you made a mistake. try again");
+            scanner.next();
+            matrix = getDimension();
+        }
+        return matrix;
+    }
+
+    private static int[][] getMatrixFromInput() {
+        int[][] matrix = getDimension();
         System.out.println("enter values");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                matrix1[i][j] = scanner.nextInt();
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (!scanner.hasNextInt()) {
+                    System.out.println("you made a mistake. try again");
+                    scanner.next();
+                }
+                matrix[i][j] = scanner.nextInt();
             }
         }
-
-        System.out.println("enter n * m");
-        a = scanner.nextInt();
-        b = scanner.nextInt();
-        matrix2 = new int[a][b];
-
-        System.out.println("enter values");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                matrix2[i][j] = scanner.nextInt();
-            }
-        }
-
-        System.out.println(Arrays.deepToString(multiplyByMatrix(matrix1, matrix2)));
+        return matrix;
     }
 
     public static int[][] multiplyByMatrix(int[][] m1, int[][] m2) {
