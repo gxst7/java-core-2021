@@ -10,15 +10,14 @@ public class Task_1 {
 
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter pw = new PrintWriter(System.out, true);
         String str;
-        pw.println("Enter some strings of text");
-        pw.println("Enter nothing to finish");
+        System.out.println("Enter some strings of text");
+        System.out.println("Enter nothing to finish");
         try {
             do {
                 str = br.readLine();
                 if (!str.equals("")) {
-                    pw.println(str);
+                    System.out.println(str);
                 }
             } while (!str.equals(""));
         } catch (NullPointerException | IOException exception) {
