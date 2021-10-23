@@ -2,66 +2,54 @@ package com.company.Home_Work_6.entity;
 
 import com.company.Home_Work_6.logic.Factory;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Scanner;
+import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.TimeUnit;
 
 public class Country implements Runnable {
 
-    private final Country_Name countryName;
+    private String countryName;
     private int robotsNumberOfTheCountry = 0;
-    private final ArrayList<RobotParts> robotPartsOfCountry = new ArrayList<>();
-    private final ArrayList<RobotParts> necessaryParts = new ArrayList<>();
-    private static boolean isDone = false;
+    private ConcurrentLinkedDeque<RobotParts> parts = new ConcurrentLinkedDeque<>();
+    public static volatile boolean isDone = false;
 
-    public Country(Country_Name countryName) {
-        this.countryName = countryName;
+    public Country() {
+        setCountryName();
     }
 
-    private void fillNecessaryPartsList() {
-        necessaryParts.addAll(Arrays.asList(RobotParts.values()));
-    }
-
-    private void addPlusOneToRobotsNumber() {
-        robotsNumberOfTheCountry++;
-        if (robotsNumberOfTheCountry == 20) {
-            isDone = true;
+    private void setCountryName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Add the country that will be involved in the conflict:");
+        if (scanner.hasNextLine()) {
+            countryName = scanner.nextLine();
+        } else {
+            setCountryName();
         }
     }
 
-    private void addRobotPart(RobotParts robopart) {
-        if ((robotPartsOfCountry.size() == 5) && (!robotPartsOfCountry.contains(robopart))) {
-            fillNecessaryPartsList();
-            robotPartsOfCountry.add(robopart);
-            addPlusOneToRobotsNumber();
-            robotPartsOfCountry.removeAll(Arrays.asList(RobotParts.values()));
-        } else if (!robotPartsOfCountry.contains(robopart)) {
-            robotPartsOfCountry.add(robopart);
-        }
-    }
-
-    public static boolean isDone() {
-        return isDone;
-    }
-
-    public void orderRobotParts() {
-        while (!isDone) {
-            RobotParts part = Factory.getRobotPartFromFactory(necessaryParts);
-            if (part != null) {
-                addRobotPart(part);
-                necessaryParts.remove(part);
+    public void orderRobotParts() throws InterruptedException {
+        while (robotsNumberOfTheCountry != 20) {
+            RobotParts part = Factory.getRobotPart();
+//            TimeUnit.MILLISECONDS.sleep(5);
+            if (part != null && !parts.contains(part)) {
+                parts.add(part);
+                if (parts.size() == 6) {
+                    robotsNumberOfTheCountry++;
+                    parts = new ConcurrentLinkedDeque<>();
+                    System.out.println(countryName + " : " + robotsNumberOfTheCountry + " : " + part);
+                }
             }
         }
-        printResult();
-    }
-
-    public void printResult() {
-        if (isDone) {
-            System.out.println("Winner: " + countryName);
-        }
+        System.out.println("Winner: " + countryName);
+        System.exit(0);
     }
 
     @Override
     public void run() {
-        orderRobotParts();
+        try {
+            orderRobotParts();
+        } catch (InterruptedException e) {
+            System.out.println("error");
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.company.Home_Work_6.main;
 
-import com.company.Home_Work_6.logic.Conflict;
+import com.company.Home_Work_6.logic.ExecutorServiceMain;
 
 /**
  * Есть две страны (Можно больше).
@@ -22,13 +22,11 @@ import com.company.Home_Work_6.logic.Conflict;
  * Кто первый соберёт армию из 20 роботов тот и победил.
  * О чем должно быть написано в консоль.
  *
- *
  * Программа должна корректно завершиться.
  */
 public class Main {
 
     public static void main(String[] args) {
-        Conflict conflict = new Conflict();
-        conflict.start();   // начинает конфликт между N стран
+        new ExecutorServiceMain();
     }
 }
