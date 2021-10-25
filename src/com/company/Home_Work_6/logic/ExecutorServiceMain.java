@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 
 public class ExecutorServiceMain {
 
-    public ExecutorService executor = Executors.newCachedThreadPool();
+    public static ExecutorService executor = Executors.newCachedThreadPool();
 
     public ExecutorServiceMain() {
 
@@ -15,7 +15,9 @@ public class ExecutorServiceMain {
         executor.execute(new Country());
         executor.execute(new Country());
         executor.execute(new Country());
+    }
 
-        executor.shutdown();
+    public static void stopAllTasks() {
+        ExecutorServiceMain.executor.shutdown();
     }
 }
