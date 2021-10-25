@@ -9,16 +9,12 @@ public class ExecutorServiceMain {
 
     public ExecutorService executor = Executors.newCachedThreadPool();
 
-    Country c1 = new Country();
-    Country c2 = new Country();
-    Factory f = new Factory();
-
     public ExecutorServiceMain() {
 
         System.out.println("Launch threads");
-        executor.execute(c1);
-        executor.execute(c2);
-        executor.execute(f);
+        executor.execute(new Country());
+        executor.execute(new Country());
+        executor.execute(new Country());
 
         executor.shutdown();
     }
