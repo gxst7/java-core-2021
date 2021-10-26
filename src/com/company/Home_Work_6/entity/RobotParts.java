@@ -12,6 +12,9 @@ public enum RobotParts {
     HEAD;
 
     public static RobotParts getRandomPart() {
-        return RobotParts.values()[new Random().nextInt(RobotParts.values().length)];
+        Random random = new Random();
+        RobotParts p = RobotParts.values()[random.nextInt(RobotParts.values().length)];
+//        System.out.println("RobotPart return: " + p);
+        return p;
     }
 }

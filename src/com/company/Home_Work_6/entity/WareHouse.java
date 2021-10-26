@@ -7,11 +7,15 @@ public class WareHouse {
     private static final ConcurrentLinkedDeque<RobotParts> robotPartsFromWareHouse = new ConcurrentLinkedDeque<>();
 
     public static void addRobotPartToWareHouse() {
-        robotPartsFromWareHouse.add(RobotParts.getRandomPart());
+        RobotParts p = RobotParts.getRandomPart();
+//        System.out.println("add to house " + p);
+        robotPartsFromWareHouse.add(p);
     }
 
     public static RobotParts getRandomPart() {
         if (robotPartsFromWareHouse.isEmpty()) return null;
-        return robotPartsFromWareHouse.poll();
+        RobotParts p = robotPartsFromWareHouse.poll();
+//        System.out.println("WareHouse return " + p);
+        return p;
     }
 }

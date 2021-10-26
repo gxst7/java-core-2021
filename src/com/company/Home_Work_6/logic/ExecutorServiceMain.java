@@ -7,17 +7,19 @@ import java.util.concurrent.Executors;
 
 public class ExecutorServiceMain {
 
-    public static ExecutorService executor = Executors.newCachedThreadPool();
+    public ExecutorService executor = Executors.newCachedThreadPool();
+
+    Country c1 = new Country();
+    Country c2 = new Country();
+    Factory f = new Factory();
 
     public ExecutorServiceMain() {
 
         System.out.println("Launch threads");
-        executor.execute(new Country());
-        executor.execute(new Country());
-        executor.execute(new Country());
-    }
+        executor.execute(c1);
+        executor.execute(c2);
+        executor.execute(f);
 
-    public static void stopAllTasks() {
-        ExecutorServiceMain.executor.shutdown();
+        executor.shutdown();
     }
 }
