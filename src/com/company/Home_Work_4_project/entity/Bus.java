@@ -4,18 +4,17 @@ public class Bus extends Car {
 
     private int passengerCapacity;
 
-    public Bus(String color, String MODEL, int YEAR_OF_MANUFACT, int sizeOfWheels, int ENGINE_VOLUME, int passengerCapacity, String... options) {
-        super(color, MODEL, YEAR_OF_MANUFACT, sizeOfWheels, ENGINE_VOLUME, options);
+    public Bus(int passengerCapacity) {
         this.passengerCapacity = passengerCapacity;
     }
 
     @Override
-    public void changeColor(String color) {
+    public void changeColor(Colors color) {
 
     }
 
     @Override
-    public void changeSizeOfWheels(int sizeOfWheels) {
+    public void changeWheels(Wheels wheel) {
 
     }
 
@@ -32,18 +31,5 @@ public class Bus extends Car {
     @Override
     public void printOptionsList() {
 
-    }
-
-    @Override
-    public void printInformation() {
-        System.out.println("Passenger Capacity: " + passengerCapacity);
-        super.printInformation();
-    }
-
-    @Override
-    public String toString() {
-        return "Bus{" +
-                "passengerCapacity=" + passengerCapacity +
-                '}';
     }
 }

@@ -1,29 +1,21 @@
 package com.company.Home_Work_4_project.entity;
 
-import com.company.Home_Work_4_project.entity.OptionList;
-
 public abstract class Car {
 
-    private String color;
-    private final String MODEL;
-    private final int YEAR_OF_MANUFACT;
-    private int sizeOfWheels;
-    private final int ENGINE_VOLUME;
+    private Colors color;
+    private Object MODEL;
+    private int YEAR_OF_MANUFACT;
+    private Wheels wheel;
+    private Engines ENGINE;
     private OptionList list;
 
-    public Car(String color, String MODEL, int YEAR_OF_MANUFACT,
-               int sizeOfWheels, int ENGINE_VOLUME, String... options) {
+    public void setColor(Colors color) {
         this.color = color;
-        this.MODEL = MODEL;
-        this.YEAR_OF_MANUFACT = YEAR_OF_MANUFACT;
-        this.sizeOfWheels = sizeOfWheels;
-        this.ENGINE_VOLUME = ENGINE_VOLUME;
-        this.list = new OptionList(options);
     }
 
-    public abstract void changeColor(String color);
+    public abstract void changeColor(Colors color);
 
-    public abstract void changeSizeOfWheels(int sizeOfWheels);
+    public abstract void changeWheels(Wheels wheel);
 
     public abstract void addOption(String option);
 
@@ -36,8 +28,8 @@ public abstract class Car {
         System.out.println("Color: " + color);
         System.out.println("Model: " + MODEL);
         System.out.println("Year of manufacture: " + YEAR_OF_MANUFACT);
-        System.out.println("Size of wheels: " + sizeOfWheels);
-        System.out.println("Engine volume: " + ENGINE_VOLUME);
+        System.out.println("Size of wheels: " + wheel);
+        System.out.println("Engine volume: " + ENGINE);
         this.printOptionsList();
     }
 }
