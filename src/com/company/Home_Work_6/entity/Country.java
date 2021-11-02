@@ -4,6 +4,7 @@ import com.company.Home_Work_6.logic.Factory;
 
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 public class Country implements Runnable {
@@ -11,10 +12,14 @@ public class Country implements Runnable {
     private String countryName;
     private int robotsNumberOfTheCountry = 0;
     private ConcurrentLinkedDeque<RobotParts> parts = new ConcurrentLinkedDeque<>();
-    public static volatile boolean isDone = false;
+    private ScheduledFuture t;
+    public static volatile boolean isDone = false;          // atomic boolean
 
-    public Country() {
+
+
+    public Country(ScheduledFuture<?> t) {
         setCountryName();
+        this.t = t;
     }
 
     private void setCountryName() {
@@ -41,7 +46,7 @@ public class Country implements Runnable {
             }
         }
         System.out.println("Winner: " + countryName);
-        System.exit(0);
+        t.cancel(true);
     }
 
     @Override
